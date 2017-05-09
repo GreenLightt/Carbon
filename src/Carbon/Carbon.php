@@ -52,7 +52,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  */
 class Carbon extends DateTime
 {
-    /**
+    /*
      * The day constants.
      */
     const SUNDAY = 0;
@@ -63,7 +63,7 @@ class Carbon extends DateTime
     const FRIDAY = 5;
     const SATURDAY = 6;
 
-    /**
+    /*
      * Names of days of the week.
      *
      * @var array
@@ -98,7 +98,7 @@ class Carbon extends DateTime
         'yesterday',
     );
 
-    /**
+    /*
      * Number of X in Y.
      */
     const YEARS_PER_CENTURY = 100;
@@ -111,36 +111,36 @@ class Carbon extends DateTime
     const MINUTES_PER_HOUR = 60;
     const SECONDS_PER_MINUTE = 60;
 
-    /**
-     * Default format to use for __toString method when type juggling occurs.
+    /*
+     * 默认时间格式 常量
      *
      * @var string
      */
     const DEFAULT_TO_STRING_FORMAT = 'Y-m-d H:i:s';
 
-    /**
-     * Format to use for __toString method when type juggling occurs.
+    /*
+     * __toString 方法格式化输出时间的格式
      *
      * @var string
      */
     protected static $toStringFormat = self::DEFAULT_TO_STRING_FORMAT;
 
-    /**
-     * First day of week.
+    /*
+     * 一周的第一天
      *
      * @var int
      */
     protected static $weekStartsAt = self::MONDAY;
 
-    /**
-     * Last day of week.
+    /*
+     * 一周的最后一天
      *
      * @var int
      */
     protected static $weekEndsAt = self::SUNDAY;
 
-    /**
-     * Days of weekend.
+    /*
+     * 周末
      *
      * @var array
      */
@@ -1170,11 +1170,11 @@ class Carbon extends DateTime
     }
 
     ///////////////////////////////////////////////////////////////////
-    /////////////////////// STRING FORMATTING /////////////////////////
+    ////////////////////////// 字符串格式化 ///////////////////////////
     ///////////////////////////////////////////////////////////////////
 
-    /**
-     * Set if UTF8 will be used for localized date/time
+    /*
+     * 设置是否采用 utf8 字符串编码
      *
      * @param bool $utf8
      */
@@ -1183,9 +1183,9 @@ class Carbon extends DateTime
         static::$utf8 = $utf8;
     }
 
-    /**
-     * Format the instance with the current locale.  You can set the current
-     * locale using setlocale() http://php.net/setlocale.
+    /*
+     * 本地化格式输出
+     * You can set the current locale using setlocale() http://php.net/setlocale.
      *
      * @param string $format
      *
@@ -1204,16 +1204,16 @@ class Carbon extends DateTime
         return static::$utf8 ? utf8_encode($formatted) : $formatted;
     }
 
-    /**
-     * Reset the format used to the default when type juggling a Carbon instance to a string
+    /*
+     * 恢复默认 __toString  方法格式化输出时间的格式
      */
     public static function resetToStringFormat()
     {
         static::setToStringFormat(static::DEFAULT_TO_STRING_FORMAT);
     }
 
-    /**
-     * Set the default format used when type juggling a Carbon instance to a string
+    /*
+     * 设置 __toString  方法格式化输出时间的格式
      *
      * @param string $format
      */
@@ -1222,8 +1222,8 @@ class Carbon extends DateTime
         static::$toStringFormat = $format;
     }
 
-    /**
-     * Format the instance as a string using the set format
+    /*
+     * 字符串格式输出
      *
      * @return string
      */
@@ -1232,8 +1232,8 @@ class Carbon extends DateTime
         return $this->format(static::$toStringFormat);
     }
 
-    /**
-     * Format the instance as date
+    /*
+     * 日期格式化输出
      *
      * @return string
      */
@@ -1242,8 +1242,9 @@ class Carbon extends DateTime
         return $this->format('Y-m-d');
     }
 
-    /**
-     * Format the instance as a readable date
+    /*
+     * 可读格式化输出
+     * 月份 几号， 年   例： Jan 11, 1999
      *
      * @return string
      */
@@ -1252,8 +1253,8 @@ class Carbon extends DateTime
         return $this->format('M j, Y');
     }
 
-    /**
-     * Format the instance as time
+    /*
+     * 时间格式化输出
      *
      * @return string
      */
@@ -1262,8 +1263,8 @@ class Carbon extends DateTime
         return $this->format('H:i:s');
     }
 
-    /**
-     * Format the instance as date and time
+    /*
+     * 日期、时间格式化输出
      *
      * @return string
      */
@@ -1272,8 +1273,8 @@ class Carbon extends DateTime
         return $this->format('Y-m-d H:i:s');
     }
 
-    /**
-     * Format the instance with day, date and time
+    /*
+     * 格式化输出如 "Fri, Jan 3, 2013 10:50 PM"
      *
      * @return string
      */
@@ -1282,8 +1283,8 @@ class Carbon extends DateTime
         return $this->format('D, M j, Y g:i A');
     }
 
-    /**
-     * Format the instance as ATOM
+    /*
+     * static::ATOM的值为："Y-m-d\TH:i:sP", 例"2012-10-20T14:12:26+00:00"
      *
      * @return string
      */
@@ -1292,8 +1293,8 @@ class Carbon extends DateTime
         return $this->format(static::ATOM);
     }
 
-    /**
-     * Format the instance as COOKIE
+    /*
+     * static::COOKIE 的值为："l, d-M-Y H:i:s T", 例"Friday, 02-Jan-2012 14:20:39 UTC"
      *
      * @return string
      */
@@ -1302,8 +1303,8 @@ class Carbon extends DateTime
         return $this->format(static::COOKIE);
     }
 
-    /**
-     * Format the instance as ISO8601
+    /*
+     * 格式化时间，同 toAtomString
      *
      * @return string
      */
@@ -1312,8 +1313,8 @@ class Carbon extends DateTime
         return $this->toAtomString();
     }
 
-    /**
-     * Format the instance as RFC822
+    /*
+     * static::RFC822 的值为 "D, d M y H:i:s O", 例“Mon, 15 Aug 05 15:52:01 +0000”
      *
      * @return string
      */
@@ -1322,8 +1323,8 @@ class Carbon extends DateTime
         return $this->format(static::RFC822);
     }
 
-    /**
-     * Format the instance as RFC850
+    /*
+     * static::RFC850 的值为 "l, d-M-y H:i:s T", 例 “Monday, 15-Aug-05 15:52:01 UTC”
      *
      * @return string
      */
@@ -1332,8 +1333,8 @@ class Carbon extends DateTime
         return $this->format(static::RFC850);
     }
 
-    /**
-     * Format the instance as RFC1036
+    /*
+     * static::RFC1036 的值为 “D, d M y H:i:s O”, 例 “2005-08-15T15:52:01+0000”
      *
      * @return string
      */
@@ -1342,8 +1343,8 @@ class Carbon extends DateTime
         return $this->format(static::RFC1036);
     }
 
-    /**
-     * Format the instance as RFC1123
+    /*
+     * static::RFC1123 的值为 "D, d M Y H:i:s O", 例如 “Mon, 15 Aug 2005 15:52:01 +0000”
      *
      * @return string
      */
@@ -1352,8 +1353,8 @@ class Carbon extends DateTime
         return $this->format(static::RFC1123);
     }
 
-    /**
-     * Format the instance as RFC2822
+    /*
+     * static::RFC2822 的值为：“D, d M Y H:i:s O”, 例如 “Mon, 15 Aug 05 15:52:01 +0000”
      *
      * @return string
      */
@@ -1362,8 +1363,8 @@ class Carbon extends DateTime
         return $this->format(static::RFC2822);
     }
 
-    /**
-     * Format the instance as RFC3339
+    /*
+     * 格式化时间，同 toAtomString
      *
      * @return string
      */
@@ -1372,8 +1373,8 @@ class Carbon extends DateTime
         return $this->format(static::RFC3339);
     }
 
-    /**
-     * Format the instance as RSS
+    /*
+     * static::RSS 的值为 "D, d M Y H:i:s O", 例如 “Mon, 15 Aug 2005 15:52:01 +0000”
      *
      * @return string
      */
@@ -1382,8 +1383,8 @@ class Carbon extends DateTime
         return $this->format(static::RSS);
     }
 
-    /**
-     * Format the instance as W3C
+    /*
+     * static::W3C 的值为 "Y-m-d\TH:i:sP", 例如 “2005-08-15T15:52:01+00:00”
      *
      * @return string
      */
@@ -1393,11 +1394,11 @@ class Carbon extends DateTime
     }
 
     ///////////////////////////////////////////////////////////////////
-    ////////////////////////// COMPARISONS ////////////////////////////
+    ////////////////////////////// 比较 ///////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
-    /**
-     * Determines if the instance is equal to another
+    /*
+     * 判断时间是否相等
      *
      * @param Carbon $dt
      *
@@ -1408,8 +1409,8 @@ class Carbon extends DateTime
         return $this == $dt;
     }
 
-    /**
-     * Determines if the instance is equal to another
+    /*
+     * 判断时间是否相等
      *
      * @param Carbon $dt
      *
@@ -1422,8 +1423,8 @@ class Carbon extends DateTime
         return $this->eq($dt);
     }
 
-    /**
-     * Determines if the instance is not equal to another
+    /*
+     * 判断时间是否不等
      *
      * @param Carbon $dt
      *
@@ -1434,8 +1435,8 @@ class Carbon extends DateTime
         return !$this->eq($dt);
     }
 
-    /**
-     * Determines if the instance is not equal to another
+    /*
+     * 判断时间是否不等
      *
      * @param Carbon $dt
      *
@@ -1448,8 +1449,8 @@ class Carbon extends DateTime
         return $this->ne($dt);
     }
 
-    /**
-     * Determines if the instance is greater (after) than another
+    /*
+     * 判断当前时间是否大于指定时间
      *
      * @param Carbon $dt
      *
@@ -1460,8 +1461,8 @@ class Carbon extends DateTime
         return $this > $dt;
     }
 
-    /**
-     * Determines if the instance is greater (after) than another
+    /*
+     * 判断当前时间是否大于指定时间
      *
      * @param Carbon $dt
      *
@@ -1474,8 +1475,8 @@ class Carbon extends DateTime
         return $this->gt($dt);
     }
 
-    /**
-     * Determines if the instance is greater (after) than or equal to another
+    /*
+     * 判断当前时间是否大于等于指定时间
      *
      * @param Carbon $dt
      *
@@ -1486,8 +1487,8 @@ class Carbon extends DateTime
         return $this >= $dt;
     }
 
-    /**
-     * Determines if the instance is greater (after) than or equal to another
+    /*
+     * 判断当前时间是否大于等于指定时间
      *
      * @param Carbon $dt
      *
@@ -1500,8 +1501,8 @@ class Carbon extends DateTime
         return $this->gte($dt);
     }
 
-    /**
-     * Determines if the instance is less (before) than another
+    /*
+     * 判断当前时间是否小于指定时间
      *
      * @param Carbon $dt
      *
@@ -1512,8 +1513,8 @@ class Carbon extends DateTime
         return $this < $dt;
     }
 
-    /**
-     * Determines if the instance is less (before) than another
+    /*
+     * 判断当前时间是否小于指定时间
      *
      * @param Carbon $dt
      *
@@ -1526,8 +1527,8 @@ class Carbon extends DateTime
         return $this->lt($dt);
     }
 
-    /**
-     * Determines if the instance is less (before) or equal to another
+    /*
+     * 判断当前时间是否小于等于指定时间
      *
      * @param Carbon $dt
      *
@@ -1538,8 +1539,8 @@ class Carbon extends DateTime
         return $this <= $dt;
     }
 
-    /**
-     * Determines if the instance is less (before) or equal to another
+    /*
+     * 判断当前时间是否小于等于指定时间
      *
      * @param Carbon $dt
      *
@@ -1552,8 +1553,8 @@ class Carbon extends DateTime
         return $this->lte($dt);
     }
 
-    /**
-     * Determines if the instance is between two others
+    /*
+     * 判断当前时间是否在指定时间范围内
      *
      * @param Carbon $dt1
      * @param Carbon $dt2
@@ -1576,8 +1577,8 @@ class Carbon extends DateTime
         return $this->gt($dt1) && $this->lt($dt2);
     }
 
-    /**
-     * Get the closest date from the instance.
+    /*
+     * 获取指定时间中更接近当前时间的对象
      *
      * @param Carbon $dt1
      * @param Carbon $dt2
@@ -2740,8 +2741,8 @@ class Carbon extends DateTime
         return (int) ($this->diffInSeconds($dt, $abs) / static::SECONDS_PER_MINUTE);
     }
 
-    /**
-     * Get the difference in seconds
+    /*
+     * 获取指定时间与当前时间的差，前者 - 后者
      *
      * @param \Carbon\Carbon|null $dt
      * @param bool                $abs Get the absolute of the difference

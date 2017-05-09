@@ -16,22 +16,22 @@ use InvalidArgumentException;
 
 class InvalidDateException extends InvalidArgumentException
 {
-    /**
-     * The invalid field.
+    /*
+     * 无效字段
      *
      * @var string
      */
     private $field;
 
-    /**
-     * The invalid value.
+    /*
+     * 无效值
      *
      * @var mixed
      */
     private $value;
 
-    /**
-     * Constructor.
+    /*
+     * 构造函数
      *
      * @param string          $field
      * @param mixed           $value
@@ -45,8 +45,8 @@ class InvalidDateException extends InvalidArgumentException
         parent::__construct($field.' : '.$value.' is not a valid value.', $code, $previous);
     }
 
-    /**
-     * Get the invalid field.
+    /*
+     * 获取无效字段
      *
      * @return string
      */
@@ -55,8 +55,8 @@ class InvalidDateException extends InvalidArgumentException
         return $this->field;
     }
 
-    /**
-     * Get the invalid value.
+    /*
+     * 获取无效值
      *
      * @return mixed
      */
