@@ -1450,7 +1450,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 判断当前时间是否大于指定时间
+     * 判断当前实例时间是否大于指定时间
      *
      * @param Carbon $dt
      *
@@ -1462,7 +1462,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 判断当前时间是否大于指定时间
+     * 判断当前实例时间是否大于指定时间
      *
      * @param Carbon $dt
      *
@@ -1476,7 +1476,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 判断当前时间是否大于等于指定时间
+     * 判断当前实例时间是否大于等于指定时间
      *
      * @param Carbon $dt
      *
@@ -1488,7 +1488,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 判断当前时间是否大于等于指定时间
+     * 判断当前实例时间是否大于等于指定时间
      *
      * @param Carbon $dt
      *
@@ -1502,7 +1502,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 判断当前时间是否小于指定时间
+     * 判断当前实例时间是否小于指定时间
      *
      * @param Carbon $dt
      *
@@ -1514,7 +1514,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 判断当前时间是否小于指定时间
+     * 判断当前实例时间是否小于指定时间
      *
      * @param Carbon $dt
      *
@@ -1528,7 +1528,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 判断当前时间是否小于等于指定时间
+     * 判断当前实例时间是否小于等于指定时间
      *
      * @param Carbon $dt
      *
@@ -1540,7 +1540,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 判断当前时间是否小于等于指定时间
+     * 判断当前实例时间是否小于等于指定时间
      *
      * @param Carbon $dt
      *
@@ -1554,7 +1554,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 判断当前时间是否在指定时间范围内
+     * 判断当前实例时间是否在指定时间范围内
      *
      * @param Carbon $dt1
      * @param Carbon $dt2
@@ -1578,7 +1578,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * 获取指定时间中更接近当前时间的对象
+     * 获取指定时间中更接近当前实例时间的对象
      *
      * @param Carbon $dt1
      * @param Carbon $dt2
@@ -1590,8 +1590,8 @@ class Carbon extends DateTime
         return $this->diffInSeconds($dt1) < $this->diffInSeconds($dt2) ? $dt1 : $dt2;
     }
 
-    /**
-     * Get the farthest date from the instance.
+    /*
+     * 获取指定时间中更远于当前实例时间的对象
      *
      * @param Carbon $dt1
      * @param Carbon $dt2
@@ -1603,8 +1603,8 @@ class Carbon extends DateTime
         return $this->diffInSeconds($dt1) > $this->diffInSeconds($dt2) ? $dt1 : $dt2;
     }
 
-    /**
-     * Get the minimum instance between a given instance (default now) and the current instance.
+    /*
+     * 获取当前实例与指定时间中更小的时间
      *
      * @param \Carbon\Carbon|null $dt
      *
@@ -1617,8 +1617,8 @@ class Carbon extends DateTime
         return $this->lt($dt) ? $this : $dt;
     }
 
-    /**
-     * Get the minimum instance between a given instance (default now) and the current instance.
+    /*
+     * 获取当前实例与指定时间中更小的时间
      *
      * @param \Carbon\Carbon|null $dt
      *
@@ -1631,8 +1631,8 @@ class Carbon extends DateTime
         return $this->min($dt);
     }
 
-    /**
-     * Get the maximum instance between a given instance (default now) and the current instance.
+    /*
+     * 获取当前实例与指定时间中更大的那个时间
      *
      * @param \Carbon\Carbon|null $dt
      *
@@ -1645,8 +1645,8 @@ class Carbon extends DateTime
         return $this->gt($dt) ? $this : $dt;
     }
 
-    /**
-     * Get the maximum instance between a given instance (default now) and the current instance.
+    /*
+     * 获取当前实例与指定时间中更大的那个时间
      *
      * @param \Carbon\Carbon|null $dt
      *
@@ -1659,8 +1659,8 @@ class Carbon extends DateTime
         return $this->max($dt);
     }
 
-    /**
-     * Determines if the instance is a weekday
+    /*
+     * 判断当前实例时间是否是工作日
      *
      * @return bool
      */
@@ -1669,8 +1669,8 @@ class Carbon extends DateTime
         return !$this->isWeekend();
     }
 
-    /**
-     * Determines if the instance is a weekend day
+    /*
+     * 判断当前实例时间是否是周末
      *
      * @return bool
      */
@@ -1679,8 +1679,8 @@ class Carbon extends DateTime
         return in_array($this->dayOfWeek, static::$weekendDays);
     }
 
-    /**
-     * Determines if the instance is yesterday
+    /*
+     * 判断当前实例时间是否是昨天
      *
      * @return bool
      */
@@ -1689,8 +1689,8 @@ class Carbon extends DateTime
         return $this->toDateString() === static::yesterday($this->getTimezone())->toDateString();
     }
 
-    /**
-     * Determines if the instance is today
+    /*
+     * 判断当前实例时间是否是今天
      *
      * @return bool
      */
@@ -1699,8 +1699,8 @@ class Carbon extends DateTime
         return $this->toDateString() === static::now($this->getTimezone())->toDateString();
     }
 
-    /**
-     * Determines if the instance is tomorrow
+    /*
+     * 判断当前实例时间是否是明天
      *
      * @return bool
      */
@@ -1709,8 +1709,8 @@ class Carbon extends DateTime
         return $this->toDateString() === static::tomorrow($this->getTimezone())->toDateString();
     }
 
-    /**
-     * Determines if the instance is within the next week
+    /*
+     * 判断当前实例时间是否是在下个星期
      *
      * @return bool
      */
@@ -1719,8 +1719,8 @@ class Carbon extends DateTime
         return $this->weekOfYear === static::now($this->getTimezone())->addWeek()->weekOfYear;
     }
 
-    /**
-     * Determines if the instance is within the last week
+    /*
+     * 判断当前实例时间是否是在上个星期
      *
      * @return bool
      */
@@ -1729,8 +1729,8 @@ class Carbon extends DateTime
         return $this->weekOfYear === static::now($this->getTimezone())->subWeek()->weekOfYear;
     }
 
-    /**
-     * Determines if the instance is within the next month
+    /*
+     * 判断当前实例时间是否在下个月
      *
      * @return bool
      */
@@ -1739,8 +1739,8 @@ class Carbon extends DateTime
         return $this->month === static::now($this->getTimezone())->addMonthNoOverflow()->month;
     }
 
-    /**
-     * Determines if the instance is within the last month
+    /*
+     * 判断当前实例时间是否在上个月
      *
      * @return bool
      */
@@ -1749,8 +1749,8 @@ class Carbon extends DateTime
         return $this->month === static::now($this->getTimezone())->subMonthNoOverflow()->month;
     }
 
-    /**
-     * Determines if the instance is within next year
+    /*
+     * 判断当前实例时间是否在明年
      *
      * @return bool
      */
@@ -1759,8 +1759,8 @@ class Carbon extends DateTime
         return $this->year === static::now($this->getTimezone())->addYear()->year;
     }
 
-    /**
-     * Determines if the instance is within the previous year
+    /*
+     * 判断当前实例时间是否在去年
      *
      * @return bool
      */
@@ -1769,8 +1769,8 @@ class Carbon extends DateTime
         return $this->year === static::now($this->getTimezone())->subYear()->year;
     }
 
-    /**
-     * Determines if the instance is in the future, ie. greater (after) than now
+    /*
+     * 判断当前实例时间是否在未来
      *
      * @return bool
      */
@@ -1779,8 +1779,8 @@ class Carbon extends DateTime
         return $this->gt(static::now($this->getTimezone()));
     }
 
-    /**
-     * Determines if the instance is in the past, ie. less (before) than now
+    /*
+     * 判断当前实例时间是否在过去
      *
      * @return bool
      */
@@ -1789,8 +1789,8 @@ class Carbon extends DateTime
         return $this->lt(static::now($this->getTimezone()));
     }
 
-    /**
-     * Determines if the instance is a leap year
+    /*
+     * 判断当前实例是否在闰年
      *
      * @return bool
      */
@@ -1799,8 +1799,8 @@ class Carbon extends DateTime
         return $this->format('L') === '1';
     }
 
-    /**
-     * Determines if the instance is a long year
+    /*
+     * 判断当前实例时间是否是长年, 即一年有 53 个星期
      *
      * @see https://en.wikipedia.org/wiki/ISO_8601#Week_dates
      *
@@ -1812,7 +1812,7 @@ class Carbon extends DateTime
     }
 
     /*
-     * Compares the formatted values of the two dates.
+     * 比较两个时间的格式化结果
      *
      * @param string              $format The date formats to compare.
      * @param \Carbon\Carbon|null $dt     The instance to compare with or null to use current day.
@@ -1826,8 +1826,8 @@ class Carbon extends DateTime
         return $this->format($format) === $dt->format($format);
     }
 
-    /**
-     * Determines if the instance is in the current year
+    /*
+     * 判断当前实例时间是否在今年
      *
      * @return bool
      */
@@ -1836,8 +1836,8 @@ class Carbon extends DateTime
         return $this->isSameYear();
     }
 
-    /**
-     * Checks if the passed in date is in the same year as the instance year.
+    /*
+     * 判断指定时间与当前实例时间是否是同一年
      *
      * @param \Carbon\Carbon|null $dt The instance to compare with or null to use current day.
      *
@@ -1848,8 +1848,8 @@ class Carbon extends DateTime
         return $this->isSameAs('Y', $dt);
     }
 
-    /**
-     * Determines if the instance is in the current month
+    /*
+     * 判断当前实例时间是否在本月
      *
      * @return bool
      */
@@ -1858,8 +1858,8 @@ class Carbon extends DateTime
         return $this->isSameMonth();
     }
 
-    /**
-     * Checks if the passed in date is in the same month as the instance month (and year if needed).
+    /*
+     * 判断当前实例时间与指定时间是否是同一月份（年可选）
      *
      * @param \Carbon\Carbon|null $dt         The instance to compare with or null to use current day.
      * @param bool                $ofSameYear Check if it is the same month in the same year.
@@ -1873,8 +1873,8 @@ class Carbon extends DateTime
         return $this->isSameAs($format, $dt);
     }
 
-    /**
-     * Checks if the passed in date is the same day as the instance current day.
+    /*
+     * 判断指定时间与当前实例时间是否是同一天
      *
      * @param \Carbon\Carbon $dt
      *
@@ -1885,8 +1885,8 @@ class Carbon extends DateTime
         return $this->toDateString() === $dt->toDateString();
     }
 
-    /**
-     * Checks if this day is a Sunday.
+    /*
+     * 判断当前实例时间是否是周日
      *
      * @return bool
      */
@@ -1895,8 +1895,8 @@ class Carbon extends DateTime
         return $this->dayOfWeek === static::SUNDAY;
     }
 
-    /**
-     * Checks if this day is a Monday.
+    /*
+     * 判断当前实例时间是否是周一
      *
      * @return bool
      */
@@ -1905,8 +1905,8 @@ class Carbon extends DateTime
         return $this->dayOfWeek === static::MONDAY;
     }
 
-    /**
-     * Checks if this day is a Tuesday.
+    /*
+     * 判断当前实例时间是否是周二
      *
      * @return bool
      */
@@ -1915,8 +1915,8 @@ class Carbon extends DateTime
         return $this->dayOfWeek === static::TUESDAY;
     }
 
-    /**
-     * Checks if this day is a Wednesday.
+    /*
+     * 判断当前实例时间是否是周三
      *
      * @return bool
      */
@@ -1925,8 +1925,8 @@ class Carbon extends DateTime
         return $this->dayOfWeek === static::WEDNESDAY;
     }
 
-    /**
-     * Checks if this day is a Thursday.
+    /*
+     * 判断当前实例时间是否是周四
      *
      * @return bool
      */
@@ -1935,8 +1935,8 @@ class Carbon extends DateTime
         return $this->dayOfWeek === static::THURSDAY;
     }
 
-    /**
-     * Checks if this day is a Friday.
+    /*
+     * 判断当前实例时间是否是周五
      *
      * @return bool
      */
@@ -1945,8 +1945,8 @@ class Carbon extends DateTime
         return $this->dayOfWeek === static::FRIDAY;
     }
 
-    /**
-     * Checks if this day is a Saturday.
+    /*
+     * 判断当前实例时间是否是周六
      *
      * @return bool
      */
@@ -1956,12 +1956,11 @@ class Carbon extends DateTime
     }
 
     ///////////////////////////////////////////////////////////////////
-    /////////////////// ADDITIONS AND SUBTRACTIONS ////////////////////
+    //////////////////////////// 加与减 ///////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
-    /**
-     * Add years to the instance. Positive $value travel forward while
-     * negative $value travel into the past.
+    /*
+     * 当前实例增加年份，正数为增，负数为减
      *
      * @param int $value
      *
@@ -1972,8 +1971,8 @@ class Carbon extends DateTime
         return $this->modify((int) $value.' year');
     }
 
-    /**
-     * Add a year to the instance
+    /*
+     * 当前实例年份默认增加一年
      *
      * @param int $value
      *
@@ -1984,8 +1983,8 @@ class Carbon extends DateTime
         return $this->addYears($value);
     }
 
-    /**
-     * Remove a year from the instance
+    /*
+     * 当前实例年份默认减一年
      *
      * @param int $value
      *
@@ -1996,8 +1995,8 @@ class Carbon extends DateTime
         return $this->subYears($value);
     }
 
-    /**
-     * Remove years from the instance.
+    /*
+     * 当前实例减少指定年份
      *
      * @param int $value
      *
@@ -2008,9 +2007,8 @@ class Carbon extends DateTime
         return $this->addYears(-1 * $value);
     }
 
-    /**
-     * Add quarters to the instance. Positive $value travels forward while
-     * negative $value travels into the past.
+    /*
+     * 当前实例时间增加指定数量的季度, 可正负
      *
      * @param int $value
      *
@@ -2021,8 +2019,8 @@ class Carbon extends DateTime
         return $this->addMonths(static::MONTHS_PER_QUARTER * $value);
     }
 
-    /**
-     * Add a quarter to the instance
+    /*
+     * 当前实例时间默认增加一个季度
      *
      * @param int $value
      *
@@ -2033,8 +2031,8 @@ class Carbon extends DateTime
         return $this->addQuarters($value);
     }
 
-    /**
-     * Remove a quarter from the instance
+    /*
+     * 当前实例时间默认减少一个季度
      *
      * @param int $value
      *
@@ -2045,8 +2043,8 @@ class Carbon extends DateTime
         return $this->subQuarters($value);
     }
 
-    /**
-     * Remove quarters from the instance
+    /*
+     * 当前实例时间减少指定数量的季度
      *
      * @param int $value
      *
@@ -2057,8 +2055,8 @@ class Carbon extends DateTime
         return $this->addQuarters(-1 * $value);
     }
 
-    /**
-     * Add centuries to the instance. Positive $value travels forward while
+    /*
+     * 当前实例添加指定数量的世纪，可正负
      * negative $value travels into the past.
      *
      * @param int $value
@@ -2070,8 +2068,8 @@ class Carbon extends DateTime
         return $this->addYears(static::YEARS_PER_CENTURY * $value);
     }
 
-    /**
-     * Add a century to the instance
+    /*
+     * 当前实例默认添加一个数量的世纪
      *
      * @param int $value
      *
@@ -2082,8 +2080,8 @@ class Carbon extends DateTime
         return $this->addCenturies($value);
     }
 
-    /**
-     * Remove a century from the instance
+    /*
+     * 当前实例默认减去一个数量的世纪
      *
      * @param int $value
      *
@@ -2094,8 +2092,8 @@ class Carbon extends DateTime
         return $this->subCenturies($value);
     }
 
-    /**
-     * Remove centuries from the instance
+    /*
+     * 当前实例默认减去指定数量的世纪
      *
      * @param int $value
      *
@@ -2106,9 +2104,9 @@ class Carbon extends DateTime
         return $this->addCenturies(-1 * $value);
     }
 
-    /**
-     * Add months to the instance. Positive $value travels forward while
-     * negative $value travels into the past.
+    /*
+     * 当前实例添加指定数量的月份；比如当前实例天是 5月31号，增加一个月后，不存在6月31号，
+     * 如果 monthsOverflow 为 true，则实例时间为 7月1号，否则为 6月30号
      *
      * @param int $value
      *
@@ -2123,8 +2121,8 @@ class Carbon extends DateTime
         return $this->addMonthsNoOverflow($value);
     }
 
-    /**
-     * Add a month to the instance
+    /*
+     * 当初实例时间默认增加1个月
      *
      * @param int $value
      *
@@ -2135,8 +2133,8 @@ class Carbon extends DateTime
         return $this->addMonths($value);
     }
 
-    /**
-     * Remove a month from the instance
+    /*
+     * 当初实例时间默认减去1个月
      *
      * @param int $value
      *
@@ -2147,8 +2145,8 @@ class Carbon extends DateTime
         return $this->subMonths($value);
     }
 
-    /**
-     * Remove months from the instance
+    /*
+     * 当前实例时间月份减去指定数量月
      *
      * @param int $value
      *
@@ -2159,9 +2157,8 @@ class Carbon extends DateTime
         return $this->addMonths(-1 * $value);
     }
 
-    /**
-     * Add months to the instance. Positive $value travels forward while
-     * negative $value travels into the past.
+    /*
+     * 当前实例增加指定数量的月份
      *
      * @param int $value
      *
@@ -2172,8 +2169,8 @@ class Carbon extends DateTime
         return $this->modify((int) $value.' month');
     }
 
-    /**
-     * Add a month to the instance
+    /*
+     * 当前实例添加指定数量的月份
      *
      * @param int $value
      *
