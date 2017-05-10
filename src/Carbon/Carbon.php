@@ -880,8 +880,8 @@ class Carbon extends DateTime
         return $this->setDate($year, $month, $day)->setTime($hour, $minute, $second);
     }
 
-    /**
-     * Set the time by time string
+    /*
+     * 根据 H:i:s 字符串设置当前实例时间
      *
      * @param string $time
      *
@@ -2181,8 +2181,8 @@ class Carbon extends DateTime
         return $this->addMonthsWithOverflow($value);
     }
 
-    /**
-     * Remove a month from the instance
+    /*
+     * 当前实例默认减去指定1个月
      *
      * @param int $value
      *
@@ -2193,8 +2193,8 @@ class Carbon extends DateTime
         return $this->subMonthsWithOverflow($value);
     }
 
-    /**
-     * Remove months from the instance
+    /*
+     * 当前实例减去指定数量的月份
      *
      * @param int $value
      *
@@ -2205,9 +2205,8 @@ class Carbon extends DateTime
         return $this->addMonthsWithOverflow(-1 * $value);
     }
 
-    /**
-     * Add months without overflowing to the instance. Positive $value
-     * travels forward while negative $value travels into the past.
+    /*
+     * 当前实例添加指定数量的月份（非溢出）
      *
      * @param int $value
      *
@@ -2226,8 +2225,8 @@ class Carbon extends DateTime
         return $this;
     }
 
-    /**
-     * Add a month with no overflow to the instance
+    /*
+     * 当前实例默认添加1个月（非溢出）
      *
      * @param int $value
      *
@@ -2238,8 +2237,8 @@ class Carbon extends DateTime
         return $this->addMonthsNoOverflow($value);
     }
 
-    /**
-     * Remove a month with no overflow from the instance
+    /*
+     * 当前实例默认减去1个月（非溢出）
      *
      * @param int $value
      *
@@ -2250,8 +2249,8 @@ class Carbon extends DateTime
         return $this->subMonthsNoOverflow($value);
     }
 
-    /**
-     * Remove months with no overflow from the instance
+    /*
+     * 当前实例默认减去指定数量的月份（非溢出）
      *
      * @param int $value
      *
@@ -2262,9 +2261,8 @@ class Carbon extends DateTime
         return $this->addMonthsNoOverflow(-1 * $value);
     }
 
-    /**
-     * Add days to the instance. Positive $value travels forward while
-     * negative $value travels into the past.
+    /*
+     * 添加指定天数
      *
      * @param int $value
      *
@@ -2275,8 +2273,8 @@ class Carbon extends DateTime
         return $this->modify((int) $value.' day');
     }
 
-    /**
-     * Add a day to the instance
+    /*
+     * 默认添加一天
      *
      * @param int $value
      *
@@ -2287,8 +2285,8 @@ class Carbon extends DateTime
         return $this->addDays($value);
     }
 
-    /**
-     * Remove a day from the instance
+    /*
+     * 默认减去一天
      *
      * @param int $value
      *
@@ -2299,8 +2297,8 @@ class Carbon extends DateTime
         return $this->subDays($value);
     }
 
-    /**
-     * Remove days from the instance
+    /*
+     * 减去指定天数
      *
      * @param int $value
      *
@@ -2311,9 +2309,8 @@ class Carbon extends DateTime
         return $this->addDays(-1 * $value);
     }
 
-    /**
-     * Add weekdays to the instance. Positive $value travels forward while
-     * negative $value travels into the past.
+    /*
+     * 添加指定数量的工作日数
      *
      * @param int $value
      *
@@ -2328,8 +2325,8 @@ class Carbon extends DateTime
         return $this->setTimeFromTimeString($t);
     }
 
-    /**
-     * Add a weekday to the instance
+    /*
+     * 当前实例默认添加一个工作日
      *
      * @param int $value
      *
@@ -2340,8 +2337,8 @@ class Carbon extends DateTime
         return $this->addWeekdays($value);
     }
 
-    /**
-     * Remove a weekday from the instance
+    /*
+     * 当前实例默认减去一个工作日
      *
      * @param int $value
      *
@@ -2352,8 +2349,8 @@ class Carbon extends DateTime
         return $this->subWeekdays($value);
     }
 
-    /**
-     * Remove weekdays from the instance
+    /*
+     * 当前实例时间默认减去指定数量的工作日
      *
      * @param int $value
      *
@@ -2364,9 +2361,8 @@ class Carbon extends DateTime
         return $this->addWeekdays(-1 * $value);
     }
 
-    /**
-     * Add weeks to the instance. Positive $value travels forward while
-     * negative $value travels into the past.
+    /*
+     * 当前实例时间添加指定数量的星期
      *
      * @param int $value
      *
@@ -2377,8 +2373,8 @@ class Carbon extends DateTime
         return $this->modify((int) $value.' week');
     }
 
-    /**
-     * Add a week to the instance
+    /*
+     * 当前实例时间默认添加1个星期
      *
      * @param int $value
      *
@@ -2389,8 +2385,8 @@ class Carbon extends DateTime
         return $this->addWeeks($value);
     }
 
-    /**
-     * Remove a week from the instance
+    /*
+     * 当前实例时间默认减去1个星期
      *
      * @param int $value
      *
@@ -2401,8 +2397,8 @@ class Carbon extends DateTime
         return $this->subWeeks($value);
     }
 
-    /**
-     * Remove weeks to the instance
+    /*
+     * 当前实例时间减去指定数量的星期
      *
      * @param int $value
      *
@@ -2413,9 +2409,8 @@ class Carbon extends DateTime
         return $this->addWeeks(-1 * $value);
     }
 
-    /**
-     * Add hours to the instance. Positive $value travels forward while
-     * negative $value travels into the past.
+    /*
+     * 添加指定数量的小时
      *
      * @param int $value
      *
@@ -2426,8 +2421,8 @@ class Carbon extends DateTime
         return $this->modify((int) $value.' hour');
     }
 
-    /**
-     * Add an hour to the instance
+    /*
+     * 当前实例时间默认添加 1 个小时
      *
      * @param int $value
      *
@@ -2438,8 +2433,8 @@ class Carbon extends DateTime
         return $this->addHours($value);
     }
 
-    /**
-     * Remove an hour from the instance
+    /*
+     * 当前实例时间默认减少 1 个小时
      *
      * @param int $value
      *
@@ -2450,8 +2445,8 @@ class Carbon extends DateTime
         return $this->subHours($value);
     }
 
-    /**
-     * Remove hours from the instance
+    /*
+     * 当前实例时间减去指定数量的小时
      *
      * @param int $value
      *
@@ -2462,9 +2457,8 @@ class Carbon extends DateTime
         return $this->addHours(-1 * $value);
     }
 
-    /**
-     * Add minutes to the instance. Positive $value travels forward while
-     * negative $value travels into the past.
+    /*
+     * 当前实例时间添加指定数量的分钟
      *
      * @param int $value
      *
@@ -2475,8 +2469,8 @@ class Carbon extends DateTime
         return $this->modify((int) $value.' minute');
     }
 
-    /**
-     * Add a minute to the instance
+    /*
+     * 当前实例时间默认添加 1 分钟
      *
      * @param int $value
      *
@@ -2487,8 +2481,8 @@ class Carbon extends DateTime
         return $this->addMinutes($value);
     }
 
-    /**
-     * Remove a minute from the instance
+    /*
+     * 当前实例时间默认减少 1 分钟
      *
      * @param int $value
      *
@@ -2499,8 +2493,8 @@ class Carbon extends DateTime
         return $this->subMinutes($value);
     }
 
-    /**
-     * Remove minutes from the instance
+    /*
+     * 当前实例时间减少指定数量的分钟
      *
      * @param int $value
      *
@@ -2511,9 +2505,8 @@ class Carbon extends DateTime
         return $this->addMinutes(-1 * $value);
     }
 
-    /**
-     * Add seconds to the instance. Positive $value travels forward while
-     * negative $value travels into the past.
+    /*
+     * 当前实例时间添加指定数量的秒数
      *
      * @param int $value
      *
@@ -2524,8 +2517,8 @@ class Carbon extends DateTime
         return $this->modify((int) $value.' second');
     }
 
-    /**
-     * Add a second to the instance
+    /*
+     * 当前实例时间默认添加 1 秒
      *
      * @param int $value
      *
@@ -2536,8 +2529,8 @@ class Carbon extends DateTime
         return $this->addSeconds($value);
     }
 
-    /**
-     * Remove a second from the instance
+    /*
+     * 当前实例时间默认减少 1 分钟
      *
      * @param int $value
      *
@@ -2548,8 +2541,8 @@ class Carbon extends DateTime
         return $this->subSeconds($value);
     }
 
-    /**
-     * Remove seconds from the instance
+    /*
+     * 当前实例时间默认减少指定数量的分钟
      *
      * @param int $value
      *
@@ -2561,11 +2554,11 @@ class Carbon extends DateTime
     }
 
     ///////////////////////////////////////////////////////////////////
-    /////////////////////////// DIFFERENCES ///////////////////////////
+    ////////////////////////////// 差值比较 ///////////////////////////
     ///////////////////////////////////////////////////////////////////
 
-    /**
-     * Get the difference in years
+    /*
+     * 获取年差
      *
      * @param \Carbon\Carbon|null $dt
      * @param bool                $abs Get the absolute of the difference
@@ -2579,8 +2572,8 @@ class Carbon extends DateTime
         return (int) $this->diff($dt, $abs)->format('%r%y');
     }
 
-    /**
-     * Get the difference in months
+    /*
+     * 获取月差
      *
      * @param \Carbon\Carbon|null $dt
      * @param bool                $abs Get the absolute of the difference
@@ -2594,8 +2587,8 @@ class Carbon extends DateTime
         return $this->diffInYears($dt, $abs) * static::MONTHS_PER_YEAR + (int) $this->diff($dt, $abs)->format('%r%m');
     }
 
-    /**
-     * Get the difference in weeks
+    /*
+     * 获取星期差(小数点后省略)
      *
      * @param \Carbon\Carbon|null $dt
      * @param bool                $abs Get the absolute of the difference
@@ -2607,8 +2600,8 @@ class Carbon extends DateTime
         return (int) ($this->diffInDays($dt, $abs) / static::DAYS_PER_WEEK);
     }
 
-    /**
-     * Get the difference in days
+    /*
+     * 获取天数差
      *
      * @param \Carbon\Carbon|null $dt
      * @param bool                $abs Get the absolute of the difference
