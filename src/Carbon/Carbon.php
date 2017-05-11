@@ -2615,8 +2615,8 @@ class Carbon extends DateTime
         return (int) $this->diff($dt, $abs)->format('%r%a');
     }
 
-    /**
-     * Get the difference in days using a filter closure
+    /*
+     * 获取时间差的数目, 回调函数用于过滤出有效时间
      *
      * @param Closure             $callback
      * @param \Carbon\Carbon|null $dt
@@ -2629,8 +2629,8 @@ class Carbon extends DateTime
         return $this->diffFiltered(CarbonInterval::day(), $callback, $dt, $abs);
     }
 
-    /**
-     * Get the difference in hours using a filter closure
+    /*
+     * 获取小时差的数目
      *
      * @param Closure             $callback
      * @param \Carbon\Carbon|null $dt
@@ -2643,8 +2643,8 @@ class Carbon extends DateTime
         return $this->diffFiltered(CarbonInterval::hour(), $callback, $dt, $abs);
     }
 
-    /**
-     * Get the difference by the given interval using a filter closure
+    /*
+     * 指定时间间隔单位，获取差值；
      *
      * @param CarbonInterval $ci       An interval to traverse by
      * @param Closure        $callback
@@ -2675,8 +2675,8 @@ class Carbon extends DateTime
         return $inverse && !$abs ? -$diff : $diff;
     }
 
-    /**
-     * Get the difference in weekdays
+    /*
+     * 获取两个时间之间工作日的数目
      *
      * @param \Carbon\Carbon|null $dt
      * @param bool                $abs Get the absolute of the difference
@@ -2690,8 +2690,8 @@ class Carbon extends DateTime
         }, $dt, $abs);
     }
 
-    /**
-     * Get the difference in weekend days using a filter
+    /*
+     * 获取两个时间之间周末的数目
      *
      * @param \Carbon\Carbon|null $dt
      * @param bool                $abs Get the absolute of the difference
@@ -2705,8 +2705,8 @@ class Carbon extends DateTime
         }, $dt, $abs);
     }
 
-    /**
-     * Get the difference in hours
+    /*
+     * 获取两个时间的小时差
      *
      * @param \Carbon\Carbon|null $dt
      * @param bool                $abs Get the absolute of the difference
@@ -2718,8 +2718,8 @@ class Carbon extends DateTime
         return (int) ($this->diffInSeconds($dt, $abs) / static::SECONDS_PER_MINUTE / static::MINUTES_PER_HOUR);
     }
 
-    /**
-     * Get the difference in minutes
+    /*
+     * 获取两个时间的分钟差
      *
      * @param \Carbon\Carbon|null $dt
      * @param bool                $abs Get the absolute of the difference
@@ -2747,8 +2747,8 @@ class Carbon extends DateTime
         return $abs ? abs($value) : $value;
     }
 
-    /**
-     * The number of seconds since midnight.
+    /*
+     * 从当前实例时间的 0时0分0秒 与当前实例时间的秒差
      *
      * @return int
      */
@@ -2757,8 +2757,9 @@ class Carbon extends DateTime
         return $this->diffInSeconds($this->copy()->startOfDay());
     }
 
-    /**
-     * The number of seconds until 23:23:59.
+    /*
+     * The number of seconds until 23:59:59.
+     * 从当前实例时间的 23时59分59秒 与当前实例时间的秒差
      *
      * @return int
      */
@@ -2863,7 +2864,7 @@ class Carbon extends DateTime
     }
 
     ///////////////////////////////////////////////////////////////////
-    //////////////////////////// MODIFIERS ////////////////////////////
+    //////////////////////////// 设置时间 /////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
     /**
