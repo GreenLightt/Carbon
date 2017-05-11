@@ -1021,10 +1021,10 @@ class Carbon extends DateTime
     }
 
     ///////////////////////////////////////////////////////////////////
-    ///////////////////////// TESTING AIDS ////////////////////////////
+    /////////////////////////// 测试专用 //////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
-    /**
+    /*
      * Set a Carbon instance (real or mock) to be returned when a "now"
      * instance is created.  The provided instance will be returned
      * specifically under the following conditions:
@@ -1046,7 +1046,7 @@ class Carbon extends DateTime
         static::$testNow = is_string($testNow) ? static::parse($testNow) : $testNow;
     }
 
-    /**
+    /*
      * Get the Carbon instance (real or mock) to be returned when a "now"
      * instance is created.
      *
@@ -1057,7 +1057,7 @@ class Carbon extends DateTime
         return static::$testNow;
     }
 
-    /**
+    /*
      * Determine if there is a valid test instance set. A valid test instance
      * is anything that is not null.
      *
@@ -1068,7 +1068,7 @@ class Carbon extends DateTime
         return static::getTestNow() !== null;
     }
 
-    /**
+    /*
      * Determine if there is a relative keyword in the time string, this is to
      * create dates relative to now for test instances. e.g.: next tuesday
      *
@@ -1091,10 +1091,10 @@ class Carbon extends DateTime
     }
 
     ///////////////////////////////////////////////////////////////////
-    /////////////////////// LOCALIZATION //////////////////////////////
+    ///////////////////////////// 本地化 //////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
-    /**
+    /*
      * Initialize the translator instance if necessary.
      *
      * @return \Symfony\Component\Translation\TranslatorInterface
@@ -1111,7 +1111,7 @@ class Carbon extends DateTime
         return static::$translator;
     }
 
-    /**
+    /*
      * Get the translator instance in use
      *
      * @return \Symfony\Component\Translation\TranslatorInterface
@@ -1121,7 +1121,7 @@ class Carbon extends DateTime
         return static::translator();
     }
 
-    /**
+    /*
      * Set the translator instance to use
      *
      * @param \Symfony\Component\Translation\TranslatorInterface $translator
@@ -1131,7 +1131,7 @@ class Carbon extends DateTime
         static::$translator = $translator;
     }
 
-    /**
+    /*
      * Get the current translator locale
      *
      * @return string
@@ -1141,7 +1141,7 @@ class Carbon extends DateTime
         return static::translator()->getLocale();
     }
 
-    /**
+    /*
      * Set the current translator locale and indicate if the source locale file exists
      *
      * @param string $locale
@@ -2768,7 +2768,7 @@ class Carbon extends DateTime
         return $this->diffInSeconds($this->copy()->endOfDay());
     }
 
-    /**
+    /*
      * Get the difference in a human readable format in the current locale.
      *
      * When comparing a value in the past to default now:
@@ -2867,8 +2867,8 @@ class Carbon extends DateTime
     //////////////////////////// 设置时间 /////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
-    /**
-     * Resets the time to 00:00:00
+    /*
+     * 重置当前实例时间为 0时0分0秒
      *
      * @return static
      */
@@ -2877,8 +2877,8 @@ class Carbon extends DateTime
         return $this->setTime(0, 0, 0);
     }
 
-    /**
-     * Resets the time to 23:59:59
+    /*
+     * 重置当前实例时间为 23时59分59秒
      *
      * @return static
      */
@@ -2887,8 +2887,8 @@ class Carbon extends DateTime
         return $this->setTime(23, 59, 59);
     }
 
-    /**
-     * Resets the date to the first day of the month and the time to 00:00:00
+    /*
+     * 重置当前实例时间为 本月第一天，同时设置 0时0分0秒
      *
      * @return static
      */
@@ -2897,8 +2897,8 @@ class Carbon extends DateTime
         return $this->setDateTime($this->year, $this->month, 1, 0, 0, 0);
     }
 
-    /**
-     * Resets the date to end of the month and time to 23:59:59
+    /*
+     * 重置当前实例时间为 本月最后一天，同时设置 23时59分59秒
      *
      * @return static
      */
@@ -2907,8 +2907,8 @@ class Carbon extends DateTime
         return $this->setDateTime($this->year, $this->month, $this->daysInMonth, 23, 59, 59);
     }
 
-    /**
-     * Resets the date to the first day of the quarter and the time to 00:00:00
+    /*
+     * 重置当前实例时间为 本季度第一天，同时设置 0时0分0秒
      *
      * @return static
      */
@@ -2919,8 +2919,8 @@ class Carbon extends DateTime
         return $this->setDateTime($this->year, $month, 1, 0, 0, 0);
     }
 
-    /**
-     * Resets the date to end of the quarter and time to 23:59:59
+    /*
+     * 重置当前实例时间为 本季度最后一天，同时设置 23时59分59秒
      *
      * @return static
      */
@@ -2929,8 +2929,8 @@ class Carbon extends DateTime
         return $this->startOfQuarter()->addMonths(static::MONTHS_PER_QUARTER - 1)->endOfMonth();
     }
 
-    /**
-     * Resets the date to the first day of the year and the time to 00:00:00
+    /*
+     * 重置当前实例时间为 本年第一天，同时设置 0时0分0秒
      *
      * @return static
      */
@@ -2939,8 +2939,8 @@ class Carbon extends DateTime
         return $this->setDateTime($this->year, 1, 1, 0, 0, 0);
     }
 
-    /**
-     * Resets the date to end of the year and time to 23:59:59
+    /*
+     * 重置当前实例时间为 本年最后一天，同时设置 23时59分59秒
      *
      * @return static
      */
@@ -2949,8 +2949,8 @@ class Carbon extends DateTime
         return $this->setDateTime($this->year, 12, 31, 23, 59, 59);
     }
 
-    /**
-     * Resets the date to the first day of the decade and the time to 00:00:00
+    /*
+     * 重置当前实例时间为 所在十年的第一天，同时设置 0时0分0秒
      *
      * @return static
      */
@@ -2961,8 +2961,8 @@ class Carbon extends DateTime
         return $this->setDateTime($year, 1, 1, 0, 0, 0);
     }
 
-    /**
-     * Resets the date to end of the decade and time to 23:59:59
+    /*
+     * 重置当前实例时间为 所在十年的最后一天，同时设置 23时59分59秒
      *
      * @return static
      */
@@ -2973,8 +2973,8 @@ class Carbon extends DateTime
         return $this->setDateTime($year, 12, 31, 23, 59, 59);
     }
 
-    /**
-     * Resets the date to the first day of the century and the time to 00:00:00
+    /*
+     * 重置当前实例时间为 本世纪的第一天，同时设置 0时0分0秒
      *
      * @return static
      */
@@ -2985,8 +2985,8 @@ class Carbon extends DateTime
         return $this->setDateTime($year, 1, 1, 0, 0, 0);
     }
 
-    /**
-     * Resets the date to end of the century and time to 23:59:59
+    /*
+     * 重置当前实例时间为 本世纪的最后一天，同时设置 23时59分59秒
      *
      * @return static
      */
@@ -2997,8 +2997,8 @@ class Carbon extends DateTime
         return $this->setDateTime($year, 12, 31, 23, 59, 59);
     }
 
-    /**
-     * Resets the date to the first day of week (defined in $weekStartsAt) and the time to 00:00:00
+    /*
+     * 重置当前实例时间为 本周的第一天，同时设置 0时0分0秒
      *
      * @return static
      */
@@ -3011,8 +3011,8 @@ class Carbon extends DateTime
         return $this->startOfDay();
     }
 
-    /**
-     * Resets the date to end of week (defined in $weekEndsAt) and time to 23:59:59
+    /*
+     * 重置当前实例时间为 本周的最后一天，同时设置 23时59分59秒
      *
      * @return static
      */
@@ -3025,7 +3025,7 @@ class Carbon extends DateTime
         return $this->endOfDay();
     }
 
-    /**
+    /*
      * Modify to the next occurrence of a given day of the week.
      * If no dayOfWeek is provided, modify to the next occurrence
      * of the current day of the week.  Use the supplied constants
@@ -3044,8 +3044,8 @@ class Carbon extends DateTime
         return $this->startOfDay()->modify('next '.static::$days[$dayOfWeek]);
     }
 
-    /**
-     * Go forward or backward to the next week- or weekend-day.
+    /*
+     * 设置本实例时间为下一个工作日或周末时间
      *
      * @param bool $weekday
      * @param bool $forward
@@ -3063,8 +3063,8 @@ class Carbon extends DateTime
         return $this;
     }
 
-    /**
-     * Go forward to the next weekday.
+    /*
+     * 设置本实例时间为下一个工作日
      *
      * @return $this
      */
@@ -3073,8 +3073,9 @@ class Carbon extends DateTime
         return $this->nextOrPreviousDay();
     }
 
-    /**
-     * Go backward to the previous weekday.
+    /*
+     * 设置本实例时间为上一个工作日
+     *
      *
      * @return $this
      */
@@ -3083,8 +3084,8 @@ class Carbon extends DateTime
         return $this->nextOrPreviousDay(true, false);
     }
 
-    /**
-     * Go forward to the next weekend day.
+    /*
+     * 设置本实例时间为下一个周末时间
      *
      * @return $this
      */
@@ -3093,8 +3094,8 @@ class Carbon extends DateTime
         return $this->nextOrPreviousDay(false);
     }
 
-    /**
-     * Go backward to the previous weekend day.
+    /*
+     * 设置本实例时间为上一个周末时间
      *
      * @return $this
      */
@@ -3103,7 +3104,7 @@ class Carbon extends DateTime
         return $this->nextOrPreviousDay(false, false);
     }
 
-    /**
+    /*
      * Modify to the previous occurrence of a given day of the week.
      * If no dayOfWeek is provided, modify to the previous occurrence
      * of the current day of the week.  Use the supplied constants
@@ -3122,7 +3123,7 @@ class Carbon extends DateTime
         return $this->startOfDay()->modify('last '.static::$days[$dayOfWeek]);
     }
 
-    /**
+    /*
      * Modify to the first occurrence of a given day of the week
      * in the current month. If no dayOfWeek is provided, modify to the
      * first day of the current month.  Use the supplied constants
@@ -3143,7 +3144,7 @@ class Carbon extends DateTime
         return $this->modify('first '.static::$days[$dayOfWeek].' of '.$this->format('F').' '.$this->year);
     }
 
-    /**
+    /*
      * Modify to the last occurrence of a given day of the week
      * in the current month. If no dayOfWeek is provided, modify to the
      * last day of the current month.  Use the supplied constants
@@ -3164,7 +3165,7 @@ class Carbon extends DateTime
         return $this->modify('last '.static::$days[$dayOfWeek].' of '.$this->format('F').' '.$this->year);
     }
 
-    /**
+    /*
      * Modify to the given occurrence of a given day of the week
      * in the current month. If the calculated occurrence is outside the scope
      * of the current month, then return false and no modifications are made.
@@ -3184,7 +3185,7 @@ class Carbon extends DateTime
         return $dt->format('Y-m') === $check ? $this->modify($dt) : false;
     }
 
-    /**
+    /*
      * Modify to the first occurrence of a given day of the week
      * in the current quarter. If no dayOfWeek is provided, modify to the
      * first day of the current quarter.  Use the supplied constants
@@ -3199,7 +3200,7 @@ class Carbon extends DateTime
         return $this->setDate($this->year, $this->quarter * static::MONTHS_PER_QUARTER - 2, 1)->firstOfMonth($dayOfWeek);
     }
 
-    /**
+    /*
      * Modify to the last occurrence of a given day of the week
      * in the current quarter. If no dayOfWeek is provided, modify to the
      * last day of the current quarter.  Use the supplied constants
@@ -3214,7 +3215,7 @@ class Carbon extends DateTime
         return $this->setDate($this->year, $this->quarter * static::MONTHS_PER_QUARTER, 1)->lastOfMonth($dayOfWeek);
     }
 
-    /**
+    /*
      * Modify to the given occurrence of a given day of the week
      * in the current quarter. If the calculated occurrence is outside the scope
      * of the current quarter, then return false and no modifications are made.
@@ -3235,7 +3236,7 @@ class Carbon extends DateTime
         return ($lastMonth < $dt->month || $year !== $dt->year) ? false : $this->modify($dt);
     }
 
-    /**
+    /*
      * Modify to the first occurrence of a given day of the week
      * in the current year. If no dayOfWeek is provided, modify to the
      * first day of the current year.  Use the supplied constants
@@ -3250,7 +3251,7 @@ class Carbon extends DateTime
         return $this->month(1)->firstOfMonth($dayOfWeek);
     }
 
-    /**
+    /*
      * Modify to the last occurrence of a given day of the week
      * in the current year. If no dayOfWeek is provided, modify to the
      * last day of the current year.  Use the supplied constants
@@ -3265,7 +3266,7 @@ class Carbon extends DateTime
         return $this->month(static::MONTHS_PER_YEAR)->lastOfMonth($dayOfWeek);
     }
 
-    /**
+    /*
      * Modify to the given occurrence of a given day of the week
      * in the current year. If the calculated occurrence is outside the scope
      * of the current year, then return false and no modifications are made.
@@ -3283,7 +3284,7 @@ class Carbon extends DateTime
         return $this->year === $dt->year ? $this->modify($dt) : false;
     }
 
-    /**
+    /*
      * Modify the current instance to the average of a given instance (default now) and the current instance.
      *
      * @param \Carbon\Carbon|null $dt
@@ -3297,7 +3298,7 @@ class Carbon extends DateTime
         return $this->addSeconds((int) ($this->diffInSeconds($dt, false) / 2));
     }
 
-    /**
+    /*
      * Check if its the birthday. Compares the date/month values of the two dates.
      *
      * @param \Carbon\Carbon|null $dt The instance to compare with or null to use current day.
@@ -3309,7 +3310,7 @@ class Carbon extends DateTime
         return $this->isSameAs('md', $dt);
     }
 
-    /**
+    /*
      * Consider the timezone when modifying the instance.
      *
      * @param string $modify
@@ -3330,7 +3331,7 @@ class Carbon extends DateTime
         return $instance;
     }
 
-    /**
+    /*
      * Return a serialized string of the instance.
      *
      * @return string
@@ -3340,7 +3341,7 @@ class Carbon extends DateTime
         return serialize($this);
     }
 
-    /**
+    /*
      * Create an instance form a serialized string.
      *
      * @param string $value
