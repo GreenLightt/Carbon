@@ -23,21 +23,27 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase
      */
     protected $now;
 
-    /**
+    /*
      * @var string
      */
     private $saveTz;
 
+    /*
+     * 测试方法调用前执行，用于初始化测试数据
+     */
     protected function setUp()
     {
         //save current timezone
         $this->saveTz = date_default_timezone_get();
 
-        date_default_timezone_set('America/Toronto');
+        date_default_timezone_set('Asia/Shanghai');
 
         Carbon::setTestNow($this->now = Carbon::now());
     }
 
+    /*
+     * 测试方法执行结束后运行，用于清理测试公共数据
+     */
     protected function tearDown()
     {
         date_default_timezone_set($this->saveTz);
@@ -45,6 +51,9 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase
         Carbon::resetMonthsOverflow();
     }
 
+    /*
+     * 判断 Carbon 中的年月日时分秒是否和指定时间一致
+     */
     protected function assertCarbon(Carbon $d, $year, $month, $day, $hour = null, $minute = null, $second = null)
     {
         $actual = array(
@@ -77,6 +86,9 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase
         $this->assertSame($expected, $actual);
     }
 
+    /*
+     * 判断指定对象是否是 Carbon 实例
+     */
     protected function assertInstanceOfCarbon($d)
     {
         $this->assertInstanceOf('Carbon\Carbon', $d);
